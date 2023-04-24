@@ -1,0 +1,61 @@
+package jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+public class JDBCSelect2 {
+
+	public static void main(String[] args) {
+		
+		/*
+		  사용자에게 Scanner를 이용하여 job_id를 입력 받습니다.
+		  입력받은 job_id에 해당하는 사람들의 first_name, salary를 콘솔창에 출력해 주세요.
+		  (employees 테이블을 사용.)
+		  
+		  조회된 내용이 없다면 조회 결과가 없다고 출력 해 주세요.
+		  
+		*/
+		String sql = "SELECT * FROM employees";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String uid = "hr";
+		String upw = "hr";		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		
+		Scanner sc = new Scanner(System.in);
+		String id = sc.next();
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			conn = DriverManager.getConnection(url, uid, upw); 
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			
+			while(rs.next()) {
+				id = rs.getString("first_name");
+				
+				
+			}
+			
+		
+		}catch(Exception e) {
+			
+		}
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+	}
+}

@@ -1,0 +1,49 @@
+package jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.util.Scanner;
+
+public class JDBCUpdate {
+
+	public static void main(String[] args) {
+		
+		// ID를 입력을 받으세요.
+		// 수정할 이름과 나이도 입력 받으세요.
+		// 지목한 ID의 이름과 나이를 새로운 값으로 수정해 보세요
+		// (ID는 존재하는 ID를 넣어 주셔야 수정이 가능)
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("*** 회원 가입 페이지 ***");
+		
+		System.out.print("아이디: ");
+		String id = sc.next();
+		
+		System.out.print("비밀번호: ");
+		String pw = sc.next();
+		
+		System.out.print("이름: ");
+		String name = sc.next();
+		
+		System.out.print("나이: ");
+		int age = sc.nextInt();
+	
+		String sql = "UPDATE members set mem_name=?, mem_age=? WHERE mem_id=?";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe"; 
+		String uid = "hr";
+		String upw = "hr";		
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			
+			
+			
+			
+		}
+	}
+}
